@@ -2,7 +2,7 @@
 import { TranslationKeys } from "./DataInterfaces";
 
 // интерфейс FormData
-interface FormData {
+export interface FormData {
   topDescr: TranslationKeys;
   topBack: TranslationKeys;
   title: TranslationKeys;
