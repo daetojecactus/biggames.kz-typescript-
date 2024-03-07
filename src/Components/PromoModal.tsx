@@ -1,10 +1,14 @@
 import React from "react";
 import PromoContent from "./PromoContent";
 import promoData from "../Data/PromoData";
-import { useLanguage, changeLanguage } from "../hooks/LanguageContext";
+import { useLanguage } from "../hooks/LanguageContext";
 
-const PromoModal = ({ onClose }) => {
-  const { selectedLanguage, changeLanguage } = useLanguage(); //Язык
+interface PromoModalProps {
+  onClose: () => void;
+}
+
+const PromoModal: React.FC<PromoModalProps> = ({ onClose }) => {
+  const { selectedLanguage } = useLanguage(); //Язык
 
   // Обработчик события для закрытия модального окна при клике на заднем фоне
   const handleBackdropClick = () => {

@@ -8,7 +8,7 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import QuestionPage from "./Pages/QuestionPage";
 
 //Импортируем маршруты роутера
-import { Routes } from "./consts";
+import { MyRoutes } from "./consts";
 
 // Интерфейс структуры объекта маршрута
 interface Route {
@@ -19,19 +19,19 @@ interface Route {
 //Публичные маршруты
 export const publicRoutes: Route[] = [
   {
-    path: Routes.MAIN,
+    path: MyRoutes.MAIN,
     Component: <MainPage />,
   },
   {
-    path: Routes.LOGIN,
+    path: MyRoutes.LOGIN,
     Component: <LoginPage />,
   },
   {
-    path: Routes.ACTION,
+    path: MyRoutes.ACTION,
     Component: <ActionPage />,
   },
   {
-    path: Routes.NOTFOUND,
+    path: MyRoutes.NOTFOUND,
     Component: <NotFoundPage />,
   },
 ];
@@ -39,19 +39,19 @@ export const publicRoutes: Route[] = [
 //Приватные маршруты
 export const privateRoutes: Route[] = [
   {
-    path: `${Routes.QUESTION}/:id`,
+    path: `${MyRoutes.QUESTION}/:id`,
     Component: <QuestionPage />,
   },
   {
-    path: `${Routes.ANSWER}/:id`,
+    path: `${MyRoutes.ANSWER}/:id`,
     Component: <AnswerPage />,
   },
   {
-    path: Routes.INFO,
+    path: MyRoutes.INFO,
     Component: <InfoPage />,
   },
   {
-    path: Routes.INSTAGRAM,
+    path: MyRoutes.INSTAGRAM,
     Component: <InstagramPage />,
   },
 ];

@@ -29,16 +29,16 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
   };
 
   // Значение контекста, предоставляемого провайдером
-  const contextValue: LanguageContextProps = {
+  const languageContextValue: LanguageContextProps = {
     selectedLanguage,
     changeLanguage,
   };
 
-  // Используем React.createElement
-  return React.createElement(
-    LanguageContext.Provider,
-    { value: contextValue },
-    children
+  // Возвращаем провайдер контекста
+  return (
+    <LanguageContext.Provider value={languageContextValue}>
+      {children}
+    </LanguageContext.Provider>
   );
 };
 

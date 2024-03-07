@@ -1,24 +1,30 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useQuestionIndex } from "../hooks/QuestionIndexContext";
-import questions from "../Data/NewQuestions";
 import { TotalCostContext } from "../hooks/TotalCostContext";
+import questions from "../Data/NewQuestions";
 import { useLocation } from "react-router-dom";
-import { QUESTION_ROUTE } from "../utils/consts";
+import { MyRoutes } from "../Routes/consts";
 
-const ProgressBar = () => {
-  const { currentQuestionId } = useQuestionIndex();
-  const { totalCost } = useContext(TotalCostContext);
-  const [percentage, setPercentage] = useState(0);
+interface ProgressBarProps {}
+
+const ProgressBar: React.FC<ProgressBarProps> = () => {
+  const questionIndexContext = useQuestionIndex();
+  const totalCostContext = useContext(TotalCostContext);
+
+  const currentQuestionId = questionIndexContext?.currentQuestionId || 0;
+  const totalCost = totalCostContext?.totalCost || 0;
+
+  const [percentage, setPercentage] = useState<number>(0);
   const location = useLocation();
 
   useEffect(() => {
     // Устанавливаем процент в 0, если на странице "question/1"
-    if (location.pathname === `${QUESTION_ROUTE}/1`) {
+    if (location.pathname === `${MyRoutes.QUESTION}/1`) {
       setPercentage(0);
     } else {
-      const currentQuestion = questions.find(
-        (question) => question.id === currentQuestionId
-      );
+      // const currentQuestion = questions.find(
+      //   (question) => question.id === currentQuestionId
+      // );
 
       const newPercentage = Math.round(
         (currentQuestionId / questions.length) * 100
@@ -31,7 +37,7 @@ const ProgressBar = () => {
   }, [currentQuestionId, location.pathname]);
 
   useEffect(() => {
-    if (location.pathname !== `${QUESTION_ROUTE}/1`) {
+    if (location.pathname !== `${MyRoutes.QUESTION}/1`) {
       // проверяем еще раз и устанавливаем процент в 0, если на странице "question/1"
       // Восстанавливаем процент заполнения из localStorage при загрузке
       const storedPercentage = localStorage.getItem("progressPercentage");
@@ -44,7 +50,7 @@ const ProgressBar = () => {
   const formattedTotalCost = totalCost.toLocaleString("ru-RU"); //переводим в читаемый формат
 
   // Устанавливаем стиль для текста в зависимости от значения percentage
-  const progressCoastStyle = {
+  const progressCoastStyle: React.CSSProperties = {
     color: percentage === 100 ? "white" : "black",
   };
 

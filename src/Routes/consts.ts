@@ -1,5 +1,5 @@
 // Маршруты
-export enum Routes {
+export enum MyRoutes {
   INFO = "/info",
   LOGIN = "/login",
   MAIN = "/",
@@ -10,4 +10,4 @@ export enum Routes {
   NOTFOUND = "/*",
 }
 
-export default Routes;
+export default MyRoutes;

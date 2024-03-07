@@ -1,22 +1,24 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { LanguageProvider } from "./hooks/LanguageContext";
+import AppRouter from "./Components/AppRouter";
+import { AuthProvider } from "./hooks/AuthContext";
+import { TotalCostProvider } from "./hooks/TotalCostContext";
+import { QuestionIndexProvider } from "./hooks/QuestionIndexContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <LanguageProvider>
+        <QuestionIndexProvider>
+          <TotalCostProvider>
+            <AuthProvider>
+              <AppRouter />
+            </AuthProvider>
+          </TotalCostProvider>
+        </QuestionIndexProvider>
+      </LanguageProvider>
+    </BrowserRouter>
   );
 }
 

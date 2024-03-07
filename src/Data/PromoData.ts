@@ -10,7 +10,7 @@ interface PromoData {
   promoItems: PromoItems[];
 }
 
-interface PromoItems {
+export interface PromoItems {
   id: number;
   promoItemDescr: TranslationKeys;
 }

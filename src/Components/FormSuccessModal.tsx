@@ -2,7 +2,7 @@ import React from "react";
 import { useLanguage } from "../hooks/LanguageContext";
 import formData from "../Data/FormData";
 import { useNavigate } from "react-router-dom";
-import { Routes } from "../Routes/consts";
+import { MyRoutes } from "../Routes/consts";
 
 interface FormSuccessModalProps {
   onClose: () => void;
@@ -14,13 +14,13 @@ const FormSuccessModal: React.FC<FormSuccessModalProps> = ({ onClose }) => {
 
   //Кнопка Перейти на главную
   const handleClickReturn = () => {
-    navigate(Routes.MAIN);
+    navigate(MyRoutes.MAIN);
     onClose(); // Закрыть модальное окно после навигации
   };
 
   //Кнопка ЖК для вас
   const handleClickInfo = () => {
-    navigate(Routes.INFO);
+    navigate(MyRoutes.INFO);
     onClose(); // Закрыть модальное окно после навигации
   };
 
