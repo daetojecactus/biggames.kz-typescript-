@@ -6,14 +6,18 @@ interface MainData {
   topDescr: TranslationKeys;
   title: TranslationKeys;
   subTitle: TranslationKeys;
-  card1: TranslationKeys;
-  card2: TranslationKeys;
-  card3: TranslationKeys;
   bottomDescr: TranslationKeys;
   button: TranslationKeys;
   offerDescr: TranslationKeys;
   offerLink: TranslationKeys;
   offerTargetLink: TranslationKeys;
+  cards: MainCards[];
+}
+
+// интерфейс MainCards
+interface MainCards {
+  id: number;
+  descr: TranslationKeys;
 }
 
 //массив с объектами, которые соответсвуют интерфейсу MainData
@@ -30,18 +34,6 @@ const mainData: MainData[] = [
     subTitle: {
       ru: "Попробуйте сыграть свадьбу так, чтобы после нее купить себе новую квартиру.",
       kz: "Үйлену тойын одан кейін өзіңізге жаңа пәтер сатып алатындай етіп өткізіп көріңіз.",
-    },
-    card1: {
-      ru: "Подумайте, что бы вы хотели видеть на своей свадьбе",
-      kz: "Үйлену тойыңызда нені көргіңіз келетінін ойланыңыз",
-    },
-    card2: {
-      ru: "Выберите подходящий вариант для вашего торжества",
-      kz: "Тойыңызға қолайлы нұсқаны таңдаңыз",
-    },
-    card3: {
-      ru: "Накопите необходимую сумму для покупки новой квартиры",
-      kz: "Жаңа пәтер сатып алуға қажетті соманы жинаңыз",
     },
     bottomDescr: {
       ru: "Мы верим, что у вас все получится!",
@@ -63,6 +55,41 @@ const mainData: MainData[] = [
       ru: "https://docs.google.com/document/d/1wSTgm__W6NoGCSBxc5H9rZmbWUNEx0cE/edit",
       kz: "https://docs.google.com/document/d/1GAsaRPorCIHrO5cnd2Oi0Ucijl6blBbD/edit?usp=sharing&ouid=106119728966408807605&rtpof=true&sd=true",
     },
+    cards: [
+      {
+        id: 1,
+        descr: {
+          ru: "Подумайте, что бы вы хотели видеть на своей свадьбе",
+          kz: "Үйлену тойыңызда нені көргіңіз келетінін ойланыңыз",
+        },
+      },
+      {
+        id: 2,
+        descr: {
+          ru: "Выберите подходящий вариант для вашего торжества",
+          kz: "Тойыңызға қолайлы нұсқаны таңдаңыз",
+        },
+      },
+      {
+        id: 3,
+        descr: {
+          ru: "Накопите необходимую сумму для покупки новой квартиры",
+          kz: "Жаңа пәтер сатып алуға қажетті соманы жинаңыз",
+        },
+      },
+    ],
+    // card1: {
+    //   ru: "Подумайте, что бы вы хотели видеть на своей свадьбе",
+    //   kz: "Үйлену тойыңызда нені көргіңіз келетінін ойланыңыз",
+    // },
+    // card2: {
+    //   ru: "Выберите подходящий вариант для вашего торжества",
+    //   kz: "Тойыңызға қолайлы нұсқаны таңдаңыз",
+    // },
+    // card3: {
+    //   ru: "Накопите необходимую сумму для покупки новой квартиры",
+    //   kz: "Жаңа пәтер сатып алуға қажетті соманы жинаңыз",
+    // },
   },
 ];
 

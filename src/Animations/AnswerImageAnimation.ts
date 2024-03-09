@@ -1,7 +1,9 @@
 //Анимация для появления картинок
+import { Variants } from "framer-motion";
+
 
 //Интерфейс для AnswerImageAnimation
-interface AnswerImageAnimation {
+interface AnswerImageAnimation extends Variants{
   hidden: {
     scale: number;
     opacity: number;

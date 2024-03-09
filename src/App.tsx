@@ -10,13 +10,13 @@ function App() {
   return (
     <BrowserRouter>
       <LanguageProvider>
-        <QuestionIndexProvider>
-          <TotalCostProvider>
+        {/* e<QuestionIndexProvider> */}
+          {/* <TotalCostProvider> */}
             <AuthProvider>
               <AppRouter />
             </AuthProvider>
-          </TotalCostProvider>
-        </QuestionIndexProvider>
+          {/* </TotalCostProvider> */}
+        {/* </QuestionIndexProvider> */}
       </LanguageProvider>
     </BrowserRouter>
   );

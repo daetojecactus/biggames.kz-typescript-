@@ -5,7 +5,9 @@ import questions from "../Data/NewQuestions";
 import { useLocation } from "react-router-dom";
 import { MyRoutes } from "../Routes/consts";
 
-interface ProgressBarProps {}
+interface ProgressBarProps {
+  totalCost: number;
+}
 
 const ProgressBar: React.FC<ProgressBarProps> = () => {
   const questionIndexContext = useQuestionIndex();

@@ -1,7 +1,8 @@
 //Анимация появления цены
+import { Variants } from "framer-motion";
 
 //интерфейс для AnswerPriceAnimation
-interface AnswerPriceAnimation {
+interface AnswerPriceAnimation extends Variants {
   hidden: {
     scale: number;
     opacity: number;

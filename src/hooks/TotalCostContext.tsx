@@ -22,6 +22,17 @@ export const TotalCostContext = createContext<
   TotalCostContextProps | undefined
 >(undefined);
 
+// Интерфейс хука для использования в компонентах
+export const useTotalCost = (): TotalCostContextProps => {
+  const context = useContext(TotalCostContext);
+
+  if (!context) {
+    throw new Error("useTotalCost must be used within a TotalCostProvider");
+  }
+
+  return context;
+};
+
 // интерфейс провайдера контекста
 interface TotalCostProviderProps {
   children: ReactNode;

@@ -1,23 +1,20 @@
 import React, { useContext } from "react";
 import { LanguageContext } from "../hooks/LanguageContext";
 
-const LanguageSwitcher: React.FC = () => {
-  //Получаем контекст языка
-  const context = useContext(LanguageContext);
+interface LanguageSwitcherProps {
+  selectedLanguage: string;
+  onChange: (language: string) => void;
+}
 
-  //Проверяем есть ли контекст
-  if (!context) {
-    // Обработка ситуации, когда контекст не определен
-    throw new Error("LanguageContext not defined in LanguageSwitcher");
-  }
-
-  // Деструктурируем свойства из контекста
-  const { selectedLanguage, changeLanguage } = context;
-
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
+  selectedLanguage,
+  onChange,
+}) => {
   // Функция для переключения языка
   const toggleLanguage = () => {
-    changeLanguage(selectedLanguage === "kz" ? "ru" : "kz");
+    onChange(selectedLanguage === "kz" ? "ru" : "kz");
   };
+
 
   return (
     <div className="language-switcher">

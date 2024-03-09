@@ -4,6 +4,9 @@ import { publicRoutes, privateRoutes } from "../Routes/routes";
 import { useAuth } from "../hooks/AuthContext";
 import { MyRoutes } from "../Routes/consts";
 
+
+
+
 const AppRouter: React.FC = () => {
   const { isAuthenticated } = useAuth(); // Получаем состояние аутентификации из AuthContext
 
@@ -13,7 +16,7 @@ const AppRouter: React.FC = () => {
         (
           { path, Component } //публичные
         ) => (
-          <Route key={path} path={path} element={Component} />
+          <Route key={path} path={path} element={<Component/>} />
         )
       )}
 
@@ -25,7 +28,7 @@ const AppRouter: React.FC = () => {
             key={path}
             path={path}
             element={
-              isAuthenticated ? Component : <Navigate to={MyRoutes.MAIN} />
+              isAuthenticated ? <Component/> : <Navigate to={MyRoutes.MAIN} />
             } //если нет авторизации, то отправляем на начальную страницу
           />
         )
