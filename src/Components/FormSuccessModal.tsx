@@ -4,6 +4,7 @@ import formData from "../Data/FormData";
 import { useNavigate } from "react-router-dom";
 import { MyRoutes } from "../Routes/consts";
 
+//интерфейс для модалки
 interface FormSuccessModalProps {
   onClose: () => void;
 }

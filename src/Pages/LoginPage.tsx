@@ -97,116 +97,115 @@ const LoginPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  //Форма для теста на локальном компьютере
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (validateForm()) {
-  //     setLoading(true);
-
-  //     setTimeout(() => {
-  //       // Здесь можете выполнять отправку данных
-
-  //       console.log("Имя:", formData.clientName);
-  //       console.log("Номер телефона:", formData.clientPhoneNumber);
-
-  //       const selectedCity = CityData.find(
-  //         (option) => option.value === parseInt(formData.regionId)
-  //       );
-  //       if (selectedCity) {
-  //         console.log("Выбранный город:", selectedCity.label);
-  //       } else {
-  //         console.log("Город не выбран.");
-  //       }
-
-  //       setLoading(false);
-  //       setIsModalOpen(true);
-  //     }, 200);
-  //   }
-  // };
-
-  //Основная отправка формы
-
-  //Отправляем форму
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  // Форма для теста на локальном компьютере
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    //Проверяем валидацию
     if (validateForm()) {
       setLoading(true);
 
-      try {
+      setTimeout(() => {
+        // Здесь можете выполнять отправку данных
+
+        console.log("Имя:", formData.clientName);
+        console.log("Номер телефона:", formData.clientPhoneNumber);
+
         const selectedCity = CityData.find(
           (option) => option.value === parseInt(formData.regionId)
         );
-
-        const city = selectedCity ? selectedCity.label : ""; //Город в буквенном значении для почты
-
-        // Отправляем данные на сервер для отправки почтового сообщения
-        const emailResponse = await axios.post(
-          "send.php",
-          {
-            clientName: formData.clientName, //Имя
-            clientPhoneNumber: formData.clientPhoneNumber, //Телефон
-            regionId: city, //Город в буквенном значении
-          },
-          {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded", //Заголовок
-            },
-          }
-        );
-
-        // Отправляем данные на сервер CRM
-        const crmResponse = await axios.post(
-          crmAPI,
-          {
-            advertisingCampaign: "1",
-            attractionChannel: "123123",
-            belongsToDepartment: "1",
-            callDate: null,
-            callDateFrom: null,
-            callDateTo: null,
-            callbackTypeId: 3,
-            clientInterest: "1",
-            clientName: formData.clientName, //Имя
-            clientPhoneNumber: formData.clientPhoneNumber, //Телефон
-            companyName: "1",
-            costSmartRemont: "1",
-            firstClickUrl: "1",
-            googleClientId: "1",
-            other: "1",
-            packageSmartRemont: "1",
-            propertyType: "1",
-            realEstateId: null,
-            regionId: parseInt(formData.regionId), // Используем числовое значение города
-            siteApplicationType: "CALLBACK",
-            url: "1",
-          },
-          {
-            //Заголовки
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Basic c2l0ZTpASiNeeVFGcEQwaSp4OGJNbSU=",
-            },
-          }
-        );
-        //Если все ок, то получаем ответы в коносль и открываем модалку
-        if (emailResponse.status === 200 && crmResponse.status === 200) {
-          console.log("Ответ от сервера почты:", emailResponse.data);
-          console.log("Ответ от сервера CRM:", crmResponse.data);
-
-          setIsModalOpen(true);
+        if (selectedCity) {
+          console.log("Выбранный город:", selectedCity.label);
         } else {
-          console.error("Произошла ошибка при отправке данных.");
+          console.log("Город не выбран.");
         }
-      } catch (error) {
-        console.error("Произошла ошибка при отправке данных:", error);
-      } finally {
+
         setLoading(false);
-      }
+        setIsModalOpen(true);
+      }, 200);
     }
   };
+
+  //Основная отправка формы
+  //Отправляем форму
+  // const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   //Проверяем валидацию
+  //   if (validateForm()) {
+  //     setLoading(true);
+
+  //     try {
+  //       const selectedCity = CityData.find(
+  //         (option) => option.value === parseInt(formData.regionId)
+  //       );
+
+  //       const city = selectedCity ? selectedCity.label : ""; //Город в буквенном значении для почты
+
+  //       // Отправляем данные на сервер для отправки почтового сообщения
+  //       const emailResponse = await axios.post(
+  //         "send.php",
+  //         {
+  //           clientName: formData.clientName, //Имя
+  //           clientPhoneNumber: formData.clientPhoneNumber, //Телефон
+  //           regionId: city, //Город в буквенном значении
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/x-www-form-urlencoded", //Заголовок
+  //           },
+  //         }
+  //       );
+
+  //       // Отправляем данные на сервер CRM
+  //       const crmResponse = await axios.post(
+  //         crmAPI,
+  //         {
+  //           advertisingCampaign: "1",
+  //           attractionChannel: "123123",
+  //           belongsToDepartment: "1",
+  //           callDate: null,
+  //           callDateFrom: null,
+  //           callDateTo: null,
+  //           callbackTypeId: 3,
+  //           clientInterest: "1",
+  //           clientName: formData.clientName, //Имя
+  //           clientPhoneNumber: formData.clientPhoneNumber, //Телефон
+  //           companyName: "1",
+  //           costSmartRemont: "1",
+  //           firstClickUrl: "1",
+  //           googleClientId: "1",
+  //           other: "1",
+  //           packageSmartRemont: "1",
+  //           propertyType: "1",
+  //           realEstateId: null,
+  //           regionId: parseInt(formData.regionId), // Используем числовое значение города
+  //           siteApplicationType: "CALLBACK",
+  //           url: "1",
+  //         },
+  //         {
+  //           //Заголовки
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: "Basic c2l0ZTpASiNeeVFGcEQwaSp4OGJNbSU=",
+  //           },
+  //         }
+  //       );
+  //       //Если все ок, то получаем ответы в коносль и открываем модалку
+  //       if (emailResponse.status === 200 && crmResponse.status === 200) {
+  //         console.log("Ответ от сервера почты:", emailResponse.data);
+  //         console.log("Ответ от сервера CRM:", crmResponse.data);
+
+  //         setIsModalOpen(true);
+  //       } else {
+  //         console.error("Произошла ошибка при отправке данных.");
+  //       }
+  //     } catch (error) {
+  //       console.error("Произошла ошибка при отправке данных:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  // };
 
   //закрываем модальное окно
   const closeModal = () => {

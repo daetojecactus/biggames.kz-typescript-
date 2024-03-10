@@ -5,6 +5,7 @@ import questions from "../Data/NewQuestions";
 import { useLocation } from "react-router-dom";
 import { MyRoutes } from "../Routes/consts";
 
+//Интерфейс для прогресбара
 interface ProgressBarProps {
   totalCost: number;
 }
@@ -28,6 +29,7 @@ const ProgressBar: React.FC<ProgressBarProps> = () => {
       //   (question) => question.id === currentQuestionId
       // );
 
+      //считаем
       const newPercentage = Math.round(
         (currentQuestionId / questions.length) * 100
       );
@@ -40,7 +42,7 @@ const ProgressBar: React.FC<ProgressBarProps> = () => {
 
   useEffect(() => {
     if (location.pathname !== `${MyRoutes.QUESTION}/1`) {
-      // проверяем еще раз и устанавливаем процент в 0, если на странице "question/1"
+      // проверяем еще раз и устанавливаем процент в 0, если на странице "question/1", так как игра начинается и всегда равно 0
       // Восстанавливаем процент заполнения из localStorage при загрузке
       const storedPercentage = localStorage.getItem("progressPercentage");
       if (storedPercentage !== null) {
@@ -55,8 +57,6 @@ const ProgressBar: React.FC<ProgressBarProps> = () => {
   const progressCoastStyle: React.CSSProperties = {
     color: percentage === 100 ? "white" : "black",
   };
-
-  console.log(percentage);
 
   return (
     <div className="game__progress">

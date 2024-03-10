@@ -792,34 +792,4 @@ const questions: QuestionItem[] = [
   },
 ];
 
-// // Функция для получения ID следующего вопроса
-// export function getNextQuestionId(currentQuestionId) {
-//   const currentIndex = questions.findIndex(
-//     (question) => question.id === parseInt(currentQuestionId)
-//   );
-
-//   if (currentIndex === -1 || currentIndex === questions.length - 1) {
-//     // Если вопрос не найден или это последний вопрос, вернем текущий ID
-//     return currentQuestionId;
-//   }
-
-//   // Вернем ID следующего вопроса
-//   return questions[currentIndex + 1].id.toString();
-// }
-
-// // Функция для получения ID предыдущего вопроса
-// export function getPrevQuestionId(currentQuestionId) {
-//   const currentIndex = questions.findIndex(
-//     (question) => question.id === parseInt(currentQuestionId)
-//   );
-
-//   if (currentIndex <= 0) {
-//     // Если вопрос не найден или это первый вопрос, вернем текущий ID
-//     return currentQuestionId;
-//   }
-
-//   // Вернем ID предыдущего вопроса
-//   return questions[currentIndex - 1].id.toString();
-// }
-
 export default questions;

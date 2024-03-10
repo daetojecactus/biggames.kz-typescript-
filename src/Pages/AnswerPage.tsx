@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import ProgressBar from "../Components/ProgressBar";
 import questions from "../Data/NewQuestions";

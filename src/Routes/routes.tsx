@@ -14,7 +14,7 @@ import { MyRoutes } from "./consts";
 // Интерфейс структуры объекта маршрута
 interface Route {
   path: string; // Путь маршрута
-  Component: React.ComponentType // Компонент, который будет отображаться при переходе по маршруту
+  Component: React.ComponentType; // Компонент, который будет отображаться при переходе по маршруту
 }
 
 //Публичные маршруты

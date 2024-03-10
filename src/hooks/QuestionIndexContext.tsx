@@ -33,7 +33,7 @@ export const QuestionIndexProvider: React.FC<QuestionIndexProviderProps> = ({
 
   // Проверка наличия контекста, чтобы избежать ошибок во время выполнения
   if (!context) {
-    throw new Error(
+    console.warn(
       "QuestionIndexProvider must be used within a QuestionIndexContext"
     );
   }

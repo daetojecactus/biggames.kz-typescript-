@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { LanguageContext } from "../hooks/LanguageContext";
+import React from "react";
 
+//Интерфейс для кнопки смены языка
 interface LanguageSwitcherProps {
   selectedLanguage: string;
   onChange: (language: string) => void;
@@ -14,7 +14,6 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const toggleLanguage = () => {
     onChange(selectedLanguage === "kz" ? "ru" : "kz");
   };
-
 
   return (
     <div className="language-switcher">

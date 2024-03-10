@@ -34,38 +34,6 @@ const MainPage: React.FC = () => {
         <p className="main__subcaption">
           {mainData[0].subTitle[selectedLanguage]}
         </p>
-        {/* <ul className="main__list list-reset">
-          <li className="main__item">
-            <div className="main-card">
-              <div className="main-card__content">
-                <div className="main-card__number">1</div>
-                <p className="main-card__descr">
-                  {mainData[0].card1[selectedLanguage]}
-                </p>
-              </div>
-            </div>
-          </li>
-          <li className="main__item">
-            <div className="main-card">
-              <div className="main-card__content">
-                <div className="main-card__number">2</div>
-                <p className="main-card__descr">
-                  {mainData[0].card2[selectedLanguage]}
-                </p>
-              </div>
-            </div>
-          </li>
-          <li className="main__item">
-            <div className="main-card">
-              <div className="main-card__content">
-                <div className="main-card__number">3</div>
-                <p className="main-card__descr">
-                  {mainData[0].card3[selectedLanguage]}
-                </p>
-              </div>
-            </div>
-          </li>
-        </ul> */}
         <ul className="main__list list-reset">
           {mainData[0].cards.map((card) => (
             <li key={card.id} className="main__item">

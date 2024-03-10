@@ -57,7 +57,7 @@ const finalCards: FinalCards[] = [
     },
     firstMoney: {
       ru: "Первоначальный взнос от ",
-      kz: "Бастапқы жарна",
+      kz: "Бастапқы жарна ",
     },
     buttonBi: {
       ru: "Перейти на BI GROUP",

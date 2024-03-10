@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import questions from "../Data/NewQuestions";
 import { useNavigate } from "react-router-dom";
 import { QuestionItem, QuestionOption } from "../Data/NewQuestions";

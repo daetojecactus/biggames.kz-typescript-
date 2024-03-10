@@ -46,7 +46,7 @@ export const TotalCostProvider: React.FC<TotalCostProviderProps> = ({
 
   // Проверка наличия контекста, чтобы избежать ошибок во время выполнения
   if (!context) {
-    throw new Error("TotalCostProvider must be used within a TotalCostContext");
+    console.warn("TotalCostProvider must be used within a TotalCostContext");
   }
 
   const [totalCost, setTotalCost] = useState(() => {
